@@ -58,8 +58,9 @@ const SearchBooks = () => {
         description: book.volumeInfo.description,
         image: book.volumeInfo.imageLinks?.thumbnail || '',
         //TODO add pageCount property
+        pageCount: book.volumeInfo.pageCount,
         //TODO add publishedDate property
-
+        publishedDate: book.volumeInfo.publishedDate
       }));
 
       setSearchedBooks(bookData);
@@ -139,6 +140,8 @@ const SearchBooks = () => {
                   <Card.Title>{book.title}</Card.Title>
                   <p className="small">Authors: {book.authors}</p>
                   { /* TODO: show the book's pageCount and published Date */}
+                  <p>Page Count: {book.pageCount}</p>
+                  <p>Published Date: {book.publishedDate}</p>
 
                   <Card.Text>{book.description}</Card.Text>
                   {Auth.loggedIn() && (
